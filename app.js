@@ -14,23 +14,73 @@
 //		console.log('Server running at http://127.0.0.1:1337/');
 
 
+//		//Exemple basique 2
+//		//Après avoir installé express avec npm
+//		//On appelle express
+//		var express = require('express');
+//
+//		//Tout ce que l'on fera avec express sera assigné à la variable "app"
+//		var app = express();
+//
+//		//créer une route, cette route aura en param requete et response
+//		app.get('/',function(req,res){
+//			res.send('Bonjour !')
+//		});
+//		app.get('/contact',function(req,res){
+//			res.send('<h1>Contactez-nous!</h1>')
+//		});
+//
+//		// On indique que l'on va écouter sur le port 3000 et on va lancer la fn
+//		app.listen(3000,function(){
+//		console.log('Je suis le consoleLog -> serveur démarré sur le port 3000');
+//		});
 
+
+//		//Exemple basique 3
+//		//Après avoir installé express avec npm
+//		//On appelle express
+//		var express = require('express');
+//
+//		//permettra d'avoir le path absolu
+//		var path=require('path');
+//
+//		//Tout ce que l'on fera avec express sera assigné à la variable "app"
+//		var app = express();
+//		//créer une route, cette route aura en param requete et response
+//		app.get('/',function(req,res){
+//			//On indique ici que l'on veut le path absolu du fichier
+//			res.sendFile(path.join(__dirname,'index.html'));
+//		});
+//		app.get('/contact',function(req,res){
+//						//On indique ici que l'on veut le path absolu du fichier
+//			res.sendFile(path.join(__dirname,'contact.html'));
+//		});
+//		app.get('/services',function(req,res){
+//			//On indique ici que l'on veut le path absolu du fichier
+//			res.sendFile(path.join(__dirname,'services.html'));
+//		});
+//		// On indique que l'on va écouter sur le port 3000 et on va lancer la fn
+//		app.listen(3000,function(){
+//			console.log('Je suis le consoleLog -> serveur démarré sur le port 3000');
+//		});
+
+//Exemple basique 4
 //Après avoir installé express avec npm
 //On appelle express
 var express = require('express');
 
+//permettra d'avoir le path absolu
+var path=require('path');
+
 //Tout ce que l'on fera avec express sera assigné à la variable "app"
 var app = express();
 
-//créer une route, cette route aura en param requete et response
-app.get('/',function(req,res){
-	res.send('Bonjour !')
-});
-app.get('/contact',function(req,res){
-	res.send('<h1>Contactez-nous!</h1>')
-});
+//utilise les middleware pour indiquer le path statique, donc dans le dossier public on aura les "html" il n'y aura plus qu'à indiquer dans l'url, ex : contact.html
+//permet de faire du site statique facilement et rapidement, il suffira juste de placer des html dans le dossier public
+app.use(express.static(path.join(__dirname,'public')));
+
 
 // On indique que l'on va écouter sur le port 3000 et on va lancer la fn
 app.listen(3000,function(){
-console.log('Je suis le consoleLog -> serveur démarré sur le port 3000');
+	console.log('Je suis le consoleLog -> serveur démarré sur le port 3000');
 });

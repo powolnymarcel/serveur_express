@@ -1,0 +1,24 @@
+{
+  "name": "serveur_express",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "poma"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/powolnymarcel/serveur_express",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
